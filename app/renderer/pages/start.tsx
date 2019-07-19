@@ -1,5 +1,5 @@
 import * as React from 'react'
 
-import ExampleApp from '../components/exampleapp'
+import ListComponent from '../components/ListComponent'
 
-export default () => (<ExampleApp />)
+export default () => (<ListComponent />)
