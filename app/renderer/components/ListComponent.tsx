@@ -2,6 +2,8 @@ import * as React from 'react';
 import ListItemComponent from './ListItemComponent';
 import tracksJson from './tracks.json';
 import { useState } from 'react';
+import Event from './Event'
+import Track from './Track';
 
 const styles: React.CSSProperties = {
     marginTop: 100,
@@ -10,18 +12,13 @@ const styles: React.CSSProperties = {
 };
 
 export default () => {
-    const [ tracks, setTracks ] = useState( tracksJson.map((track, index) => {
-        const copy = {...track}
-        copy.orderNumber = index
-        return copy
-    } );
-    const newTrack = {}
-    const handleAuthor = (event) => {newTrack.author = event.target.value}
-    const handleTitle = (event: {}) => {newTrack.title = event.target.value}
-    const handleTime = (event) => {newTrack.time = event.target.value}
+    const [ tracks, setTracks ] = useState(tracksJson.map((track: Track) => track) )
+    const newTrack: Track = {author: '', title: '', time: ''}
+    const handleAuthor = (event: Event) => {newTrack.author = event.target.value}
+    const handleTitle = (event: Event) => {newTrack.title = event.target.value}
+    const handleTime = (event: Event) => {newTrack.time = event.target.value}
     const addTrack = () => {
-        newTrack.orderNumber = tracks.length + 1
-        const copy = [...tracks]
+        const copy: Track[] = [...tracks]
         copy.push(newTrack)
         setTracks(copy)
     }
@@ -36,7 +33,11 @@ export default () => {
         <div>
             <div style={styles}>
                 <ul>
-                    {tracks.map( ( track, index ) => <ListItemComponent  onClick={() => {removeTrack(index)}}   {...track}   /> )}
+                    {tracks.map( ( track, index ) => <ListItemComponent
+                        onClick={() => {removeTrack(index)}}
+                        key={index}
+                        orderNumber={index + 1}
+                        {...track}   /> )}
                 </ul>
             </div>
             <span>
