@@ -13,7 +13,7 @@ const right: React.CSSProperties = {
 }
 
 export default ( props ) => (
-    <li style={ styles }>
+    <li style={ styles } onClick={props.onClick}>
         <span style={{width: '10%'}}>{props.orderNumber} </span>
         <span style={{width: '70%'}}> {props.author} {props.title}</span>
         <span style={{width: '20%'}}> {props.time}</span>
