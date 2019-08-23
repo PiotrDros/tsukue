@@ -1,9 +1,9 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-
-import ListComponent from './components/ListComponent'
+import './styles/style.css'
+import WinAmpComponent from './components/WinAmpComponent';
 
 ReactDOM.render(
-    <ListComponent />,
+    <WinAmpComponent />,
     document.getElementById('root')
 )

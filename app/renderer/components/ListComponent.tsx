@@ -11,7 +11,7 @@ const styles: React.CSSProperties = {
     backgroundColor: 'black'
 };
 
-export default () => {
+export default (props) => {
     const [ tracks, setTracks ] = useState(tracksJson.map((track: Track) => track) )
     const newTrack: Track = {author: '', title: '', time: ''}
     const handleAuthor = (event: Event) => {newTrack.author = event.target.value}
@@ -34,7 +34,7 @@ export default () => {
             <div style={styles}>
                 <ul>
                     {tracks.map( ( track, index ) => <ListItemComponent
-                        onClick={() => {removeTrack(index)}}
+                        onClick={() => {props.setCurrentTrack(track)}}
                         key={index}
                         orderNumber={index + 1}
                         {...track}   /> )}
