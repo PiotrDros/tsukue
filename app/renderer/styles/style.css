@@ -2,3 +2,19 @@
     font-size: 32px;
     color: red;
 }
+
+
+.play:hover,
+.stop:hover,
+.pause:hover,
+.shuffle:hover,
+.repeat:hover,
+.repeat-one:hover,
+.mute:hover,
+.sound:hover {
+    background: grey;
+}
+
+.active {
+    background: green;
+}
