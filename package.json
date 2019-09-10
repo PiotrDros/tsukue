@@ -124,8 +124,9 @@
   "dependencies": {
     "app-root-path": "^2.1.0",
     "electron-is-dev": "^1.0.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "file-system": "^2.2.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.7.0"
   },

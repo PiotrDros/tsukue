@@ -11,6 +11,8 @@ const styles: React.CSSProperties = {
     backgroundColor: 'black'
 };
 
+const fs = require('fs')
+
 export default (props) => {
     const [ tracks, setTracks ] = useState(tracksJson.map((track: Track) => track) )
     const newTrack: Track = {author: '', title: '', time: ''}
@@ -29,6 +31,13 @@ export default (props) => {
         setTracks(copy)
     }
 
+    const onFileLoad = (e) => {
+        const path = e.target.files[0].path;
+        console.log(path)
+
+        console.log( JSON.parse(fs.readFileSync(path)))
+    }
+
     return (
         <div>
             <div style={styles}>
@@ -40,6 +49,7 @@ export default (props) => {
                         {...track}   /> )}
                 </ul>
             </div>
+            <input type='file' onChange={onFileLoad}/>
             <span>
                 <button onClick={addTrack}>Add</button>
                 <label>Author:</label>
